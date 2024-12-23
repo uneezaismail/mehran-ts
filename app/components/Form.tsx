@@ -32,6 +32,25 @@ const RegistrationForm = () => {
 
   // Generate PDF
   const generatePDF = async () => {
+    // Check if all required fields are filled
+    const requiredFields = [
+      formData.name,
+      formData.fatherName,
+      formData.gender,
+      formData.caste,
+      formData.class,
+      formData.school,
+      formData.contactNo,
+      formData.address,
+      formData.district,
+    ];
+  
+    // Check if any required field is empty
+    if (requiredFields.some(field => field.trim() === "")) {
+      alert("Please fill in all the required fields.");
+      return; // Prevent PDF generation if any field is empty
+    }
+  
     if (formRef.current) {
       const canvas = await html2canvas(formRef.current, {
         scale: 2, // Adjust the scale for better quality
@@ -53,7 +72,7 @@ const RegistrationForm = () => {
       // Adjust the image height to be slightly smaller than the canvas
       const adjustedHeight = canvasHeight * scaleFactor * 0.95; // 95% of the original height for a slightly shorter form
       const imgWidth = canvasWidth * scaleFactor;
-      
+  
       const yOffset = (pageHeight - adjustedHeight) / 2; // Center the adjusted image vertically
   
       // Center the image on the PDF page
@@ -66,6 +85,7 @@ const RegistrationForm = () => {
       }, 1000);
     }
   };
+  
   
 
   

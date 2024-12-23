@@ -210,9 +210,8 @@ const RegistrationForm = () => {
   <div ref={formRef} style={{ display: isPopupVisible ? "block" : "none" }} className=" border-2 border-black p-8  space-y-6 rounded bg-white w-[800px]" >
     {/* Form content */}
     <div className="flex justify-center items-center mb-10">
-        
-      <div className="flex flex-col items-center gap-3">
-        <h1 className="text-2xl font-serif text-center underline mt-10">
+            <div className="flex flex-col items-center gap-3">
+        <h1 className="text-2xl font-serif text-center underline mt-4">
           MEHRAN TESTING SERVICE NAUKOT
         </h1>
         <h2 className="text-2xl font-bold text-center">

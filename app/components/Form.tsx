@@ -285,7 +285,7 @@ const RegistrationForm = () => {
     </div>
 
     <div className="flex justify-between items-center mb-10" >
-      <Image src="/mehran-logo.jpg" alt="Logo" width={80} height={80} />
+      <Image src="/mehran-logo.jpg" alt="Logo" width={40} height={40} />
       <div className="flex flex-col items-center gap-4">
         <span className="bg-black px-10 py-2 text-white rounded-md font-medium">STUDENT SLIP</span>
         <h1 className="text-2xl font-serif text-center mb-4">

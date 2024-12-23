@@ -4,7 +4,6 @@ import React, {useRef, useState } from "react";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 import Link from "next/link";
-import Image from "next/image";
 
 const RegistrationForm = () => {
   const formRef = useRef<HTMLDivElement>(null);

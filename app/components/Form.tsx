@@ -207,7 +207,7 @@ const RegistrationForm = () => {
           {/* Form data */}
           <div className="space-y-4">
             <div className="flex items-center gap-4 "><span className="font-bold text-xl">Name: </span><p className="border-b-2 border-b-black p-2  w-[70%] font-medium">{formData.name}</p></div>
-            <div className="flex items-center gap-4 "><span className="font-bold text-xl">Father's Name: </span><p className="border-b-2 border-b-black p-2  w-[70%] font-medium"> {formData.fatherName}</p></div>
+            <div className="flex items-center gap-4 "><span className="font-bold text-xl">Father&apos;s Name: </span><p className="border-b-2 border-b-black p-2  w-[70%] font-medium"> {formData.fatherName}</p></div>
             <div className="flex items-center gap-4 "><span className="font-bold text-xl">Gender: </span><p className="border-b-2 border-b-black p-2 w-[70%] font-medium"> {formData.gender}</p></div>
             <div className="flex items-center gap-4 "><span className="font-bold text-xl">Caste: </span><p className="border-b-2 border-b-black p-2 w-[70%] font-medium"> {formData.caste}</p></div>
             <div className="flex items-center gap-4 "><span className="font-bold text-xl">Class: </span><p className="border-b-2 border-b-black p-2 w-[70%] font-medium"> {formData.class}</p></div>

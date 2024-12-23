@@ -51,14 +51,14 @@ const RegistrationForm = () => {
       // Calculate the scaling factor to fit the content within one A4 page
       const scaleFactor = Math.min(pageWidth / canvasWidth, pageHeight / canvasHeight);
   
+      // Adjust the image height to be slightly smaller than the canvas
+      const adjustedHeight = canvasHeight * scaleFactor * 0.95; // 95% of the original height for a slightly shorter form
       const imgWidth = canvasWidth * scaleFactor;
-      const imgHeight = canvasHeight * scaleFactor;
+      
+      const yOffset = (pageHeight - adjustedHeight) / 2; // Center the adjusted image vertically
   
       // Center the image on the PDF page
-      const xOffset = (pageWidth - imgWidth) / 2;
-      const yOffset = (pageHeight - imgHeight) / 2;
-  
-      pdf.addImage(imgData, "PNG", xOffset, yOffset, imgWidth, imgHeight);
+      pdf.addImage(imgData, "PNG", (pageWidth - imgWidth) / 2, yOffset, imgWidth, adjustedHeight);
   
       pdf.save("registration_form.pdf");
   
@@ -67,6 +67,7 @@ const RegistrationForm = () => {
       }, 1000);
     }
   };
+  
 
   
 
@@ -209,8 +210,8 @@ const RegistrationForm = () => {
   
   <div ref={formRef}  className="border-2 border-black p-8  space-y-6 rounded bg-white w-[800px]" >
     {/* Form content */}
-    <div className="flex justify-evenly items-center mb-10">
-      <Image src="/mehran-logo.jpg" alt="Logo" width={60} height={60} />
+    <div className="flex justify-center items-center mb-10">
+        
       <div className="flex flex-col items-center gap-3">
         <h1 className="text-2xl font-serif text-center underline mt-10">
           MEHRAN TESTING SERVICE NAUKOT
@@ -222,7 +223,6 @@ const RegistrationForm = () => {
           REGISTRATION FORM
         </h3>
       </div>
-      <Image src="/mehran-logo.jpg" alt="Logo" width={60} height={60} />
     </div>
 
     {/* Form data */}
@@ -284,10 +284,11 @@ const RegistrationForm = () => {
       <p className="border-t-2 border-t-black p-2 text-xl">Student Sign</p>
     </div>
 
-    <div className="flex justify-between items-center mb-10" >
-      <Image src="/mehran-logo.jpg" alt="Logo" width={60} height={60} />
+
+
+<div className="flex justify-center items-center mb-10" >
       <div className="flex flex-col items-center gap-4">
-        <span className="bg-black px-10 py-2 text-white rounded-md font-medium">STUDENT SLIP</span>
+        <span className="bg-black px-10 py-2 pb-4 text-white rounded-md font-medium">STUDENT SLIP</span>
         <h1 className="text-2xl font-serif text-center mb-4">
           MEHRAN TESTING SERVICE NAUKOT
         </h1>
@@ -295,7 +296,6 @@ const RegistrationForm = () => {
           2 <sup>ND </sup> SELF ASSESSMENT TEST
         </h2>
       </div>
-      <Image src="/mehran-logo.jpg" alt="Logo" width={60} height={60} />
     </div>
 
     <div className="space-y-4" 
@@ -355,12 +355,13 @@ const RegistrationForm = () => {
     <div className="flex justify-between p-8 font-bold">
       <p className="border-t-2 border-t-black p-2 text-xl">Sign of Controller</p>
       <p className="border-t-2 border-t-black p-2 text-xl">Student Sign</p>
-    </div>
-  </div>
+    </div></div>
+    
+ 
 
      
 
-      {/* Popup */}
+    
      
     </div>
   );

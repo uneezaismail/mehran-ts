@@ -36,18 +36,35 @@ const RegistrationForm = () => {
     if (formRef.current) {
       const canvas = await html2canvas(formRef.current, { scale: 2 });
       const imgData = canvas.toDataURL("image/png");
+  
       const pdf = new jsPDF("p", "mm", "a4");
-      const imgWidth = 110; // A4 width in mm
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+  
+      const maxWidth = 210; // A4 width in mm
+      const maxHeight = 297; // A4 height in mm
+  
+      const canvasWidth = canvas.width;
+      const canvasHeight = canvas.height;
+  
+      // Calculate the scaling factor to fit the image into A4 size
+      const scaleFactor = Math.min(maxWidth / canvasWidth, maxHeight / canvasHeight);
+  
+      // New image dimensions after scaling
+      const imgWidth = canvasWidth * scaleFactor;
+      const imgHeight = canvasHeight * scaleFactor;
+  
+      // Add the image to the PDF, scaled to fit within the A4 page
       pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+  
+      // Save the PDF
       pdf.save("registration_form.pdf");
-
+  
       // Hide the popup and form after generating the PDF
       setTimeout(() => {
         setIsPopupVisible(false);
       }, 1000);
     }
   };
+  
 
   // Handle popup response (Yes or No)
   const handlePopupResponse = (response: string) => {

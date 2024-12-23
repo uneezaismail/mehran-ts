@@ -32,49 +32,46 @@ const RegistrationForm = () => {
   };
 
   // Generate PDF
-  const generatePDF = async () => {
-    if (formRef.current) {
-      const canvas = await html2canvas(formRef.current, { scale: 1 });
-      const imgData = canvas.toDataURL("image/png");
-  
-      const pdf = new jsPDF("p", "mm", "a4");
-  
-      const maxWidth = 210; // A4 width in mm
-      const maxHeight = 297; // A4 height in mm
-  
-      const canvasWidth = canvas.width;
-      const canvasHeight = canvas.height;
-  
-      // Adjust the scaling factor dynamically based on screen size
-      const scaleFactor = Math.min(maxWidth / canvasWidth, maxHeight / canvasHeight);
-  
-      // New image dimensions after scaling
-      const imgWidth = canvasWidth * scaleFactor;
-      const imgHeight = canvasHeight * scaleFactor;
-  
-      // Ensure the image fits within the A4 size on mobile as well
-      const viewportWidth = window.innerWidth;  // Get the current screen width
-      const viewportHeight = window.innerHeight;  // Get the current screen height
-  
-      const adjustedScaleFactor = Math.min(viewportWidth / canvasWidth, viewportHeight / canvasHeight, scaleFactor);
-  
-      // Recalculate image dimensions based on adjusted scale
-      const finalImgWidth = canvasWidth * adjustedScaleFactor;
-      const finalImgHeight = canvasHeight * adjustedScaleFactor;
-  
-      // Add the image to the PDF, scaled to fit within the A4 page
-      pdf.addImage(imgData, "PNG", 0, 0, finalImgWidth, finalImgHeight);
-  
-      // Save the PDF
-      pdf.save("registration_form.pdf");
-  
-      // Hide the popup and form after generating the PDF
-      setTimeout(() => {
-        setIsPopupVisible(false);
-      }, 1000);
-    }
-  };
-  
+ const generatePDF = async () => {
+  if (formRef.current) {
+    const canvas = await html2canvas(formRef.current, { scale: 2 });
+    const imgData = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF("p", "mm", "a4");
+
+    const maxWidth = 210; // A4 width in mm
+    const maxHeight = 297; // A4 height in mm
+
+    const canvasWidth = canvas.width;
+    const canvasHeight = canvas.height;
+
+    // Adjust the scaling factor dynamically based on screen size
+    const scaleFactor = Math.min(maxWidth / canvasWidth, maxHeight / canvasHeight);
+
+
+    // Ensure the image fits within the A4 size on mobile as well
+    const viewportWidth = window.innerWidth;  // Get the current screen width
+    const viewportHeight = window.innerHeight;  // Get the current screen height
+
+    const adjustedScaleFactor = Math.min(viewportWidth / canvasWidth, viewportHeight / canvasHeight, scaleFactor);
+
+    // Recalculate image dimensions based on adjusted scale
+    const finalImgWidth = canvasWidth * adjustedScaleFactor;
+    const finalImgHeight = canvasHeight * adjustedScaleFactor;
+
+    // Add the image to the PDF, scaled to fit within the A4 page
+    pdf.addImage(imgData, "PNG", 0, 0, finalImgWidth, finalImgHeight);
+
+    // Save the PDF
+    pdf.save("registration_form.pdf");
+
+    // Hide the popup and form after generating the PDF
+    setTimeout(() => {
+      setIsPopupVisible(false);
+    }, 1000);
+  }
+};
+
   
 
   // Handle popup response (Yes or No)
@@ -117,7 +114,7 @@ const RegistrationForm = () => {
       {/* Input Form */}
       <div className="bg-[#F3EEE8] p-2 border rounded shadow-md w-full mx-auto mb-10">
         <h2 className="text-xl text-center font-semibold text-[#392712] mb-8">Fill in the Registration Form:</h2>
-        <div className="grid grid-cols-1 gap-4">
+        <form className="grid grid-cols-1 gap-4">
           <input
             type="text"
             name="name"
@@ -200,7 +197,7 @@ const RegistrationForm = () => {
             className="p-2 border rounded"
             required
           />
-        </div>
+        </form>
       </div>
 
 
@@ -214,7 +211,7 @@ const RegistrationForm = () => {
 
       {/* Hidden Rendered Form for PDF */}
   
-  <div ref={formRef}  className="border-2 border-black p-8  space-y-10 rounded bg-white w-[800px]">
+  <div ref={formRef}  className="border-2 border-black p-8  space-y-10 rounded bg-white w-[800px]" style={{ display: isPopupVisible ? "block" : "none" }}>
     {/* Form content */}
     <div className="flex justify-between items-center mb-10">
       <Image src="/mehran-logo.jpg" alt="Logo" width={128} height={128} />

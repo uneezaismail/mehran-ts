@@ -208,7 +208,7 @@ const RegistrationForm = () => {
 
       {/* Hidden Rendered Form for PDF */}
   
-  <div ref={formRef}  className="border-2 border-black p-8  space-y-6 rounded bg-white w-[800px]" >
+  <div ref={formRef} style={{ display: isPopupVisible ? "block" : "none" }} className=" border-2 border-black p-8  space-y-6 rounded bg-white w-[800px]" >
     {/* Form content */}
     <div className="flex justify-center items-center mb-10">
         

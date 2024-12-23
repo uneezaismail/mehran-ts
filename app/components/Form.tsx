@@ -210,7 +210,7 @@ const RegistrationForm = () => {
   <div ref={formRef}  className="border-2 border-black p-8  space-y-6 rounded bg-white w-[800px]" >
     {/* Form content */}
     <div className="flex justify-between items-center mb-10">
-      <Image src="/mehran-logo.jpg" alt="Logo" width={128} height={128} />
+      <Image src="/mehran-logo.jpg" alt="Logo" width={60} height={60} />
       <div className="flex flex-col items-center gap-3">
         <h1 className="text-2xl font-serif text-center underline mt-10">
           MEHRAN TESTING SERVICE NAUKOT
@@ -222,7 +222,7 @@ const RegistrationForm = () => {
           REGISTRATION FORM
         </h3>
       </div>
-      <Image src="/mehran-logo.jpg" alt="Logo" width={128} height={128} />
+      <Image src="/mehran-logo.jpg" alt="Logo" width={60} height={60} />
     </div>
 
     {/* Form data */}
@@ -285,7 +285,7 @@ const RegistrationForm = () => {
     </div>
 
     <div className="flex justify-between items-center mb-10" >
-      <Image src="/mehran-logo.jpg" alt="Logo" width={40} height={40} />
+      <Image src="/mehran-logo.jpg" alt="Logo" width={60} height={60} />
       <div className="flex flex-col items-center gap-4">
         <span className="bg-black px-10 py-2 text-white rounded-md font-medium">STUDENT SLIP</span>
         <h1 className="text-2xl font-serif text-center mb-4">
@@ -295,7 +295,7 @@ const RegistrationForm = () => {
           2 <sup>ND </sup> SELF ASSESSMENT TEST
         </h2>
       </div>
-      <Image src="/mehran-logo.jpg" alt="Logo" width={128} height={128} />
+      <Image src="/mehran-logo.jpg" alt="Logo" width={60} height={60} />
     </div>
 
     <div className="space-y-4" 

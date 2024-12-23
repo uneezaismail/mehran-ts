@@ -32,45 +32,41 @@ const RegistrationForm = () => {
   };
 
   // Generate PDF
- const generatePDF = async () => {
-  if (formRef.current) {
-    const canvas = await html2canvas(formRef.current, { scale: 2 });
-    const imgData = canvas.toDataURL("image/png");
-
-    const pdf = new jsPDF("p", "mm", "a4");
-
-    const maxWidth = 210; // A4 width in mm
-    const maxHeight = 297; // A4 height in mm
-
-    const canvasWidth = canvas.width;
-    const canvasHeight = canvas.height;
-
-    // Adjust the scaling factor dynamically based on screen size
-    const scaleFactor = Math.min(maxWidth / canvasWidth, maxHeight / canvasHeight);
-
-
-    // Ensure the image fits within the A4 size on mobile as well
-    const viewportWidth = window.innerWidth;  // Get the current screen width
-    const viewportHeight = window.innerHeight;  // Get the current screen height
-
-    const adjustedScaleFactor = Math.min(viewportWidth / canvasWidth, viewportHeight / canvasHeight, scaleFactor);
-
-    // Recalculate image dimensions based on adjusted scale
-    const finalImgWidth = canvasWidth * adjustedScaleFactor;
-    const finalImgHeight = canvasHeight * adjustedScaleFactor;
-
-    // Add the image to the PDF, scaled to fit within the A4 page
-    pdf.addImage(imgData, "PNG", 0, 0, finalImgWidth, finalImgHeight);
-
-    // Save the PDF
-    pdf.save("registration_form.pdf");
-
-    // Hide the popup and form after generating the PDF
-    setTimeout(() => {
-      setIsPopupVisible(false);
-    }, 1000);
-  }
-};
+  const generatePDF = async () => {
+    if (formRef.current) {
+      const canvas = await html2canvas(formRef.current, {
+        scale: 2, // Adjust the scale for better quality
+        useCORS: true, // Allow cross-origin images
+      });
+      const imgData = canvas.toDataURL("image/png");
+  
+      const pdf = new jsPDF("p", "mm", "a4");
+  
+      const pageWidth = 210; // A4 page width in mm
+      const pageHeight = 297; // A4 page height in mm
+  
+      const canvasWidth = canvas.width;
+      const canvasHeight = canvas.height;
+  
+      // Calculate the scaling factor to fit the content within one A4 page
+      const scaleFactor = Math.min(pageWidth / canvasWidth, pageHeight / canvasHeight);
+  
+      const imgWidth = canvasWidth * scaleFactor;
+      const imgHeight = canvasHeight * scaleFactor;
+  
+      // Center the image on the PDF page
+      const xOffset = (pageWidth - imgWidth) / 2;
+      const yOffset = (pageHeight - imgHeight) / 2;
+  
+      pdf.addImage(imgData, "PNG", xOffset, yOffset, imgWidth, imgHeight);
+  
+      pdf.save("registration_form.pdf");
+  
+      setTimeout(() => {
+        setIsPopupVisible(false);
+      }, 1000);
+    }
+  };
 
   
 

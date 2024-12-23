@@ -209,7 +209,7 @@ const RegistrationForm = () => {
   
   <div ref={formRef}  className="border-2 border-black p-8  space-y-6 rounded bg-white w-[800px]" >
     {/* Form content */}
-    <div className="flex justify-between items-center mb-10">
+    <div className="flex justify-evenly items-center mb-10">
       <Image src="/mehran-logo.jpg" alt="Logo" width={60} height={60} />
       <div className="flex flex-col items-center gap-3">
         <h1 className="text-2xl font-serif text-center underline mt-10">

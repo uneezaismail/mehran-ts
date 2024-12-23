@@ -45,15 +45,25 @@ const RegistrationForm = () => {
       const canvasWidth = canvas.width;
       const canvasHeight = canvas.height;
   
-      // Calculate the scaling factor to fit the image into A4 size
+      // Adjust the scaling factor dynamically based on screen size
       const scaleFactor = Math.min(maxWidth / canvasWidth, maxHeight / canvasHeight);
   
       // New image dimensions after scaling
       const imgWidth = canvasWidth * scaleFactor;
       const imgHeight = canvasHeight * scaleFactor;
   
+      // Ensure the image fits within the A4 size on mobile as well
+      const viewportWidth = window.innerWidth;  // Get the current screen width
+      const viewportHeight = window.innerHeight;  // Get the current screen height
+  
+      const adjustedScaleFactor = Math.min(viewportWidth / canvasWidth, viewportHeight / canvasHeight, scaleFactor);
+  
+      // Recalculate image dimensions based on adjusted scale
+      const finalImgWidth = canvasWidth * adjustedScaleFactor;
+      const finalImgHeight = canvasHeight * adjustedScaleFactor;
+  
       // Add the image to the PDF, scaled to fit within the A4 page
-      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+      pdf.addImage(imgData, "PNG", 0, 0, finalImgWidth, finalImgHeight);
   
       // Save the PDF
       pdf.save("registration_form.pdf");
@@ -64,6 +74,7 @@ const RegistrationForm = () => {
       }, 1000);
     }
   };
+  
   
 
   // Handle popup response (Yes or No)

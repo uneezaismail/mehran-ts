@@ -114,7 +114,7 @@ const RegistrationForm = () => {
       {/* Input Form */}
       <div className="bg-[#F3EEE8] p-2 border rounded shadow-md w-full mx-auto mb-10">
         <h2 className="text-xl text-center font-semibold text-[#392712] mb-8">Fill in the Registration Form:</h2>
-        <form className="grid grid-cols-1 gap-4">
+        <form className="grid grid-cols-1 gap-4 ">
           <input
             type="text"
             name="name"
@@ -211,7 +211,7 @@ const RegistrationForm = () => {
 
       {/* Hidden Rendered Form for PDF */}
   
-  <div ref={formRef}  className="border-2 border-black p-8  space-y-10 rounded bg-white w-[800px]" style={{ display: isPopupVisible ? "block" : "none" }}>
+  <div ref={formRef}  className="border-2 border-black p-8  space-y-6 rounded bg-white w-[800px]" >
     {/* Form content */}
     <div className="flex justify-between items-center mb-10">
       <Image src="/mehran-logo.jpg" alt="Logo" width={128} height={128} />
@@ -231,41 +231,41 @@ const RegistrationForm = () => {
 
     {/* Form data */}
     <div className="space-y-4">
-      <div className="flex items-center gap-4">
-        <span className="font-bold text-xl">Name: </span>
-        <p className="border-b-2 border-b-black p-2 w-[70%] font-medium">{formData.name}</p>
+      <div className="flex items-center gap-x-4">
+        <span className="font-bold text-xl w-40 ">Name: </span>
+        <p className="border-b-2 border-b-black w-[70%] font-medium text-lg pb-3">{formData.name}</p>
       </div>
       <div className="flex items-center gap-4">
-        <span className="font-bold text-xl">Father&apos;s Name: </span>
-        <p className="border-b-2 border-b-black p-2 w-[70%] font-medium">{formData.fatherName}</p>
+        <span className="font-bold text-xl w-40">Father&apos;s Name: </span>
+        <p className="border-b-2 border-b-black w-[70%] font-medium text-lg pb-3">{formData.fatherName}</p>
       </div>
       <div className="flex items-center gap-4">
-        <span className="font-bold text-xl">Gender: </span>
-        <p className="border-b-2 border-b-black p-2 w-[70%] font-medium">{formData.gender}</p>
+        <span className="font-bold w-40 text-xl">Gender: </span>
+        <p className="border-b-2 border-b-black w-[70%] font-medium text-lg pb-3">{formData.gender}</p>
       </div>
       <div className="flex items-center gap-4">
-        <span className="font-bold text-xl">Caste: </span>
-        <p className="border-b-2 border-b-black p-2 w-[70%] font-medium">{formData.caste}</p>
+        <span className="font-bold w-40 text-xl">Caste: </span>
+        <p className="border-b-2 border-b-black  w-[70%] font-medium text-lg pb-3">{formData.caste}</p>
       </div>
       <div className="flex items-center gap-4">
-        <span className="font-bold text-xl">Class: </span>
-        <p className="border-b-2 border-b-black p-2 w-[70%] font-medium">{formData.class}</p>
+        <span className="font-bold w-40 text-xl">Class: </span>
+        <p className="border-b-2 border-b-black w-[70%] font-medium text-lg pb-3">{formData.class}</p>
       </div>
       <div className="flex items-center gap-4">
-        <span className="font-bold text-xl">School: </span>
-        <p className="border-b-2 border-b-black p-2 w-[70%] font-medium">{formData.school}</p>
+        <span className="font-bold w-40 text-xl">School: </span>
+        <p className="border-b-2 border-b-black w-[70%] font-medium text-lg pb-3">{formData.school}</p>
       </div>
       <div className="flex items-center gap-4">
-        <span className="font-bold text-xl">Contact No: </span>
-        <p className="border-b-2 border-b-black p-2 w-[70%] font-medium">{formData.contactNo}</p>
+        <span className="font-bold w-40 text-xl">Contact No: </span>
+        <p className="border-b-2 border-b-black  w-[70%] font-medium text-lg pb-3">{formData.contactNo}</p>
       </div>
       <div className="flex items-center gap-4">
-        <span className="font-bold text-xl">Address: </span>
-        <p className="border-b-2 border-b-black p-2 w-[70%] font-medium">{formData.address}</p>
+        <span className="font-bold w-40 text-xl">Address: </span>
+        <p className="border-b-2 border-b-black  w-[70%] font-medium text-lg pb-3">{formData.address}</p>
       </div>
       <div className="flex items-center gap-4">
-        <span className="font-bold text-xl">District: </span>
-        <p className="border-b-2 border-b-black p-2 w-[70%] font-medium">{formData.district}</p>
+        <span className="font-bold w-40 text-xl">District: </span>
+        <p className="border-b-2 border-b-black w-[70%] font-medium text-lg pb-3">{formData.district}</p>
       </div>
     </div>
 
@@ -291,51 +291,51 @@ const RegistrationForm = () => {
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-4 w-[50%]">
           <span className="font-medium text-xl">Name: </span>
-          <p className="border-b-2 border-b-black p-2 w-[70%] font-medium">{formData.name}</p>
+          <p className="border-b-2 border-b-black  w-[70%] font-medium text-lg pb-3">{formData.name}</p>
         </div>
         <div className="flex items-center gap-4 w-[50%]">
           <span className="font-medium text-xl">F.Name: </span>
-          <p className="border-b-2 border-b-black p-2 w-[70%] font-medium">{formData.fatherName}</p>
+          <p className="border-b-2 border-b-black w-[70%] font-medium text-lg pb-3">{formData.fatherName}</p>
         </div>
       </div>
 
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-4 w-[50%]">
           <span className="font-medium text-xl">Class: </span>
-          <p className="border-b-2 border-b-black p-2 w-[70%] font-medium">{formData.class}</p>
+          <p className="border-b-2 border-b-black w-[70%] font-medium text-lg pb-3">{formData.class}</p>
         </div>
         <div className="flex items-center gap-4 w-[50%]">
           <span className="font-medium text-xl">School: </span>
-          <p className="border-b-2 border-b-black p-2 w-[70%] font-medium">{formData.school}</p>
+          <p className="border-b-2 border-b-black w-[70%] font-medium text-lg pb-3">{formData.school}</p>
         </div>
       </div>
 
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-4 w-[50%]">
           <span className="font-medium text-xl">Gender: </span>
-          <p className="border-b-2 border-b-black p-2 w-[70%] font-medium">{formData.gender}</p>
+          <p className="border-b-2 border-b-black w-[70%] font-medium text-lg pb-3">{formData.gender}</p>
         </div>
         <div className="flex items-center gap-4 w-[50%]">
           <span className="font-medium text-xl">Caste: </span>
-          <p className="border-b-2 border-b-black p-2 w-[70%] font-medium">{formData.caste}</p>
+          <p className="border-b-2 border-b-black w-[70%] font-medium text-lg pb-3">{formData.caste}</p>
         </div>
       </div>
 
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center w-[50%] gap-4">
           <span className="font-medium text-xl">Contact No: </span>
-          <p className="border-b-2 border-b-black p-2 w-[60%] font-medium">{formData.contactNo}</p>
+          <p className="border-b-2 border-b-black w-[60%] font-medium text-lg pb-3">{formData.contactNo}</p>
         </div>
         <div className="flex items-center gap-4 w-[50%]">
           <span className="font-medium text-xl">Address: </span>
-          <p className="border-b-2 border-b-black p-2 w-[70%] font-medium">{formData.address}</p>
+          <p className="border-b-2 border-b-black w-[70%] font-medium text-lg pb-3">{formData.address}</p>
         </div>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex flex-col  gap-2">
         <p className="border-b-2 border-b-black py-2 w-full font-medium"></p>
-      </div>
       <p>Contact No. <Link href={"tel:03342492847"}>03342492847</Link></p>
+      </div>
     </div>
 
     <div className="flex justify-between p-8 font-bold">
